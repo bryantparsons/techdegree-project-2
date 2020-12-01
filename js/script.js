@@ -22,8 +22,8 @@ function showPage(list, page) {
    startIndex = (page * list) - list;
    endIndex = page * list; 
    for (i = 0; i < list.length; i += 1) {
-      if ()
-
+      if (i >= startIndex && i < endIndex)
+      list.style.display = 'block';
    }
 }
 
