@@ -19,7 +19,12 @@ const studentPageItems = document.getElementsByClassName('student-item cf');
 ***/
 
 function showPage(list, page) {
-   
+   startIndex = (page * list) - list;
+   endIndex = page * list; 
+   for (i = 0; i < list.length; i += 1) {
+      if ()
+
+   }
 }
 
 
