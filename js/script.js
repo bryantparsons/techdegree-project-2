@@ -42,7 +42,12 @@ function showPage(list, page) {
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
-
+function appendPageLinks(list) {
+   const pageDiv = document.createElement('div');
+   pageDiv.className = 'pagination';
+   div = document.getElementsByClassName('page');
+   div.appendChild(pageDiv);
+}
 
 
 
