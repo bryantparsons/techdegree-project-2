@@ -4,8 +4,8 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
    
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-const list = document.getElementsByClassName('student-list');
-const page = document.getElementsByClassName('student-item cf');
+const studentList = document.getElementsByClassName('student-list');
+const pageItems = document.getElementsByClassName('student-item cf');
 
 /*** 
    Add your global variables that store the DOM elements you will 
@@ -49,17 +49,21 @@ function appendPageLinks(list) {
    div.appendChild(pageDiv);
    const ul = document.createElement('ul');
    pageDiv.appendChild(ul);
-   for (i = 0; i < list.length; i += 1) {
+   for (i = 0; i <= 6; i += 1) {
       const li = document.createElement('li');
       const a = document.createElement('a');
       a.href = '#';
       a.textContent = i;
       li.appendChild(a);
-      a.addEventListener('click', () => {
-         showPage(list, page);
+      i[0].className = 'active';
+      a.addEventListener('click', (e) => {
+         for (i = 0; i < a.length; i += 1) {
+            a.classList.remove("active");
+            e.target.className = 'active';
+            showPage(studentList, a.textContent);
+         }  
       });
    }
-   
 }
 
 
