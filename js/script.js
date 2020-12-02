@@ -47,6 +47,15 @@ function appendPageLinks(list) {
    pageDiv.className = 'pagination';
    div = document.getElementsByClassName('page');
    div.appendChild(pageDiv);
+   const ul = document.createElement('ul');
+   pageDiv.appendChild(ul);
+   for (i = 0; i < list.length; i += 1) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#';
+      a.textContent = i;
+      li.appendChild(a);
+   }
 }
 
 
