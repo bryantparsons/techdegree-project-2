@@ -4,8 +4,8 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
    
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
-const studentList = document.getElementsByClassName('student-list');
-const pageItems = document.getElementsByClassName('student-item cf');
+const studentList = document.getElementsByClassName('student-item cf');
+const pageItems = 10;
 
 /*** 
    Add your global variables that store the DOM elements you will 
@@ -19,8 +19,8 @@ const pageItems = document.getElementsByClassName('student-item cf');
 ***/
 
 function showPage(list, page) {
-   startIndex = (page * list) - list;
-   endIndex = page * list; 
+   startIndex = (page * pageItems ) - pageItems;
+   endIndex = page * pageItems; 
    for (i = 0; i < list.length; i += 1) {
       if (i >= startIndex && i < endIndex)
       list.style.display = 'block';
@@ -43,17 +43,18 @@ function showPage(list, page) {
        "invoke" the function 
 ***/
 function appendPageLinks(list) {
+   pageNumber = studentList / pageItems;
    const pageDiv = document.createElement('div');
    pageDiv.className = 'pagination';
    div = document.getElementsByClassName('page');
    div.appendChild(pageDiv);
    const ul = document.createElement('ul');
    pageDiv.appendChild(ul);
-   for (i = 0; i <= 6; i += 1) {
+   for (i = 0; i < pageNumber.length; i += 1) {
       const li = document.createElement('li');
       const a = document.createElement('a');
       a.href = '#';
-      a.textContent = i;
+      a.textContent = pageNumber;
       li.appendChild(a);
       i[0].className = 'active';
       a.addEventListener('click', (e) => {
