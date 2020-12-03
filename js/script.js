@@ -19,12 +19,16 @@ const pageItems = 10;
 ***/
 
 function showPage(list, page) {
-   startIndex = (page * pageItems ) - pageItems;
+   startIndex = (page * pageItems) - pageItems;
    endIndex = page * pageItems; 
    for (i = 0; i < list.length; i += 1) {
-      if (i >= startIndex && i < endIndex)
+      if (i >= startIndex && i < endIndex) {
       list.style.display = 'block';
+      } else {
+      list.style.display = 'none';
    }
+ }
+ 
 }
 
 
@@ -43,7 +47,7 @@ function showPage(list, page) {
        "invoke" the function 
 ***/
 function appendPageLinks(list) {
-   pageNumber = studentList / pageItems;
+   pageNumber = Math.ceil(studentList.length / pageItems);
    const pageDiv = document.createElement('div');
    pageDiv.className = 'pagination';
    div = document.getElementsByClassName('page');
@@ -66,7 +70,8 @@ function appendPageLinks(list) {
       });
    }
 }
-
+ 
+appendPageLinks(studentList);
 
 
 /*** 
