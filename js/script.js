@@ -46,7 +46,7 @@ function showPage(list, page) {
        "invoke" the function 
 ***/
 function appendPageLinks(list) {
-   pageNumber = Math.ceil(studentList.length / pageItems);
+   pageNumber = Math.ceil(list.length / pageItems);
    const pageDiv = document.createElement('div');
    pageDiv.className = 'pagination';
    div = document.querySelector('.page');
@@ -55,6 +55,7 @@ function appendPageLinks(list) {
    pageDiv.appendChild(ul);
    for (i = 0; i < pageNumber.length; i += 1) {
       const li = document.createElement('li');
+      ul.appendChild(li);
       const a = document.createElement('a');
       a.href = '#';
       a.textContent = pageNumber;
