@@ -19,18 +19,17 @@ const pageItems = 10;
 ***/
 
 function showPage(list, page) {
-   startIndex = (page * pageItems) - pageItems;
-   endIndex = page * pageItems; 
+  const startIndex = (page * pageItems) - pageItems;
+  const endIndex = page * pageItems; 
    for (i = 0; i < list.length; i += 1) {
       if (i >= startIndex && i < endIndex) {
-      list.style.display = 'block';
+      list[i].style.display = 'block';
       } else {
-      list.style.display = 'none';
+      list[i].style.display = 'none';
    }
  }
  
 }
-
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
@@ -50,7 +49,7 @@ function appendPageLinks(list) {
    pageNumber = Math.ceil(studentList.length / pageItems);
    const pageDiv = document.createElement('div');
    pageDiv.className = 'pagination';
-   div = document.getElementsByClassName('page');
+   div = document.querySelector('.page');
    div.appendChild(pageDiv);
    const ul = document.createElement('ul');
    pageDiv.appendChild(ul);
