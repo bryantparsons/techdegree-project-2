@@ -21,7 +21,7 @@ const pageItems = 10;
 function showPage(list, page) {
   const startIndex = (page * pageItems) - pageItems;
   const endIndex = page * pageItems; 
-   for (i = 0; i < list.length; i += 1) {
+   for (let i = 0; i < list.length; i += 1) {
       if (i >= startIndex && i < endIndex) {
       list[i].style.display = 'block';
       } else {
@@ -46,31 +46,31 @@ function showPage(list, page) {
        "invoke" the function 
 ***/
 function appendPageLinks(list) {
-   pageNumber = Math.ceil(list.length / pageItems);
+   const pageNumber = Math.ceil(list.length / pageItems);
    const pageDiv = document.createElement('div');
    pageDiv.className = 'pagination';
-   div = document.querySelector('.page');
+   const div = document.querySelector('.page');
    div.appendChild(pageDiv);
    const ul = document.createElement('ul');
    pageDiv.appendChild(ul);
-   for (i = 0; i < pageNumber.length; i += 1) {
+   for (let i = 0; i < pageNumber; i += 1) {
       const li = document.createElement('li');
       ul.appendChild(li);
       const a = document.createElement('a');
       a.href = '#';
-      a.textContent = pageNumber;
+      a.textContent = i + 1;
       li.appendChild(a);
-      i[0].className = 'active';
+      if (i === 0) {
+         a.className = 'active';
+      }
       a.addEventListener('click', (e) => {
-         for (i = 0; i < a.length; i += 1) {
-            a.classList.remove("active");
             e.target.className = 'active';
-            showPage(studentList, a.textContent);
-         }  
+            a.classList.remove("active");
+            showPage(list, e.target.textContent);
       });
    }
 }
- 
+showPage(studentList, 1); 
 appendPageLinks(studentList);
 
 
